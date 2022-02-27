@@ -476,6 +476,7 @@ def evaluate_dataset(model, dataset, dataset_object, eval_type="bbox", dataset_t
     # Limit to a subset
     if limit:
         image_ids = image_ids[:limit]
+    print('number of images:', len(image_ids))
 
     # Get corresponding COCO image IDs.
     dataset_image_ids = [dataset.image_info[id]["id"] for id in image_ids]
@@ -485,6 +486,7 @@ def evaluate_dataset(model, dataset, dataset_object, eval_type="bbox", dataset_t
 
     results = []
     for i, image_id in enumerate(image_ids):
+        print(i, image_id)
         if i%100 == 0 and verbose > 1:
             print("Processing image {}/{} ...".format(i, len(image_ids)))
         
